@@ -25,6 +25,8 @@ jobs:
       - name: Install Android SDK
         run: sdkmanager 'platforms;android-37.2' 'build-tools;37.0.0'
       - uses: gradle/actions/setup-gradle@v4
+      - name: Check desktop layout compatibility
+        run: python3 tests/weex/check_desktop_layout.py
       - name: Build debug APK
         run: ./gradlew assembleLawnWithQuickstepGithubDebug
       - name: Upload debug APK
